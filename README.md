@@ -3,5 +3,7 @@
 [Stack]
 
 FE - React ,Typescript, Recoil, React-query
-Be - Node js
+
+BE - Node js
+
 DB - Moogo DB
