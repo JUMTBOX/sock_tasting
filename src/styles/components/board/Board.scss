@@ -1,3 +1,12 @@
 .board_container {
-  //
+  align-items: center;
+  .board_box {
+    color: white;
+    .article {
+      height: 80%;
+      div {
+        border: 1px solid blueviolet;
+      }
+    }
+  }
 }

@@ -1,1 +1,12 @@
-/*# sourceMappingURL=Board.css.map */
+.board_container {
+  align-items: center;
+}
+.board_container .board_box {
+  color: white;
+}
+.board_container .board_box .article {
+  height: 80%;
+}
+.board_container .board_box .article div {
+  border: 1px solid blueviolet;
+}/*# sourceMappingURL=Board.css.map */
