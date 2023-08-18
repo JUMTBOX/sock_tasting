@@ -7,3 +7,5 @@ FE - React ,Typescript, Recoil, React-query
 BE - Node js
 
 DB - Moogo DB
+
+Tool - StoryBook, Jest, Cypress
