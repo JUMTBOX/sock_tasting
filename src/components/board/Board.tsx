@@ -1,13 +1,8 @@
-import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getArticle } from "../../request/request";
+import { useGetAllArticle } from "../../request/request";
 import "../../styles/components/board/Board.css";
 
 export default function Board() {
-  const { data } = useQuery(["articles"], getArticle, {
-    refetchOnWindowFocus: true,
-    staleTime: 2 * 60 * 1000,
-  });
+  const { data } = useGetAllArticle();
 
   return (
     <div
