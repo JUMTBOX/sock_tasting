@@ -7,7 +7,7 @@ export default function NavBar() {
     <nav className="navBar_container" data-testid="navBar">
       <div className="navBar_box flex space-x-6 px-3">
         <span>
-          <Link to={"/"}>메인으로</Link>
+          <Link to={"/"} className="navBar_logo"></Link>
         </span>
         <span className="flex space-x-8">
           <Link to={"/board"}>게시판</Link>

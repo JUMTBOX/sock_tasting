@@ -18,7 +18,10 @@ export default function Board() {
         {data === undefined ? (
           <div className=" text-white">로딩중</div>
         ) : (
-          <div className="article w-4/5 flex-col items-center justify-center space-y-4">
+          <div
+            className="article w-4/5 flex-col items-center justify-center space-y-4"
+            data-testid="article"
+          >
             <div>{data[0].title}</div>
             <div>{data[0].author}</div>
             <div>{data[0].content}</div>

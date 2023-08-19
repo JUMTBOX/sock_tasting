@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .navBar_container {
   position: fixed;
   width: 100%;
@@ -11,10 +12,18 @@
   justify-content: space-between;
 }
 .navBar_container .navBar_box a {
+  display: block;
   width: 10em;
   height: 2.2em;
   background: none;
   padding: 0.3rem 0.5rem;
   font-weight: 600;
   text-align: center;
+}
+.navBar_container .navBar_box .navBar_logo {
+  height: 4em;
+  background: url(/public/images/메인로고.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }/*# sourceMappingURL=NavBar.css.map */
