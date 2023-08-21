@@ -1,0 +1,45 @@
+.login_container {
+  align-items: center;
+  .text_box {
+    background-color: #efefef;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+    input {
+      width: 65%;
+      height: 10%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 1.2em;
+      color: #555;
+      padding: 15px 5px 10px 20px;
+      box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+      border-radius: 3em;
+      &::placeholder {
+        color: #555;
+        transition: all 0.3s ease;
+      }
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+    a {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      color: dodgerblue;
+      box-sizing: border-box;
+      font-weight: 400;
+    }
+  }
+}
