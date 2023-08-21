@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { useGetAllArticle } from "../../request/request";
 import "../../styles/components/board/Board.css";
 
 export default function Board() {
   const { data } = useGetAllArticle();
+  const navigate = useNavigate();
 
   return (
     <div
@@ -17,11 +19,24 @@ export default function Board() {
             className="article w-4/5 flex-col items-center justify-center space-y-4"
             data-testid="article"
           >
-            <div>{data[0].title}</div>
-            <div>{data[0].author}</div>
-            <div>{data[0].content}</div>
+            {data.map((el, idx) => {
+              return (
+                <div key={idx}>
+                  <div>{el.title}</div>
+                  <div>{el.author}</div>
+                  <div>{el.content}</div>
+                </div>
+              );
+            })}
           </div>
         )}
+        <button
+          onClick={() => {
+            navigate("/board/write");
+          }}
+        >
+          글 쓰기
+        </button>
       </div>
     </div>
   );

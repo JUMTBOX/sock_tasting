@@ -1,5 +1,11 @@
 import axios from "axios";
-import { useQuery, useMutation, UseQueryResult } from "@tanstack/react-query";
+import {
+  useQuery,
+  useMutation,
+  UseQueryResult,
+  UseMutationResult,
+  useQueryClient,
+} from "@tanstack/react-query";
 
 export interface BoardData {
   article_id: string;
@@ -39,5 +45,13 @@ const useGetOneArticle = (): UseQueryResult<BoardData> => {
   });
 };
 //---------------------------------------------------------------------
+const useCreateArticle = (): UseMutationResult => {
+  const queryClient = useQueryClient();
 
-export { useGetAllArticle, useGetOneArticle };
+  return useMutation(createArticle, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["articles"]);
+    },
+  });
+};
+export { useGetAllArticle, useGetOneArticle, useCreateArticle };
