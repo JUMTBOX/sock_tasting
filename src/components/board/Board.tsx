@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useGetAllArticle } from "../../request/request";
+import { useGetAllArticle } from "../../request/boardRequest";
 import "../../styles/components/board/Board.css";
 
 export default function Board() {
