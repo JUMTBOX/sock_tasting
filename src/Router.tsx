@@ -1,8 +1,8 @@
-import Main from "./components/Main";
-import Login from "./components/login/Login";
-import SignUp from "./components/login/SignUp";
-import Board from "./components/board/Board";
-import WriteArticle from "./components/board/WriteArticle";
+import Main from "./pages/MainPage";
+import Login from "./pages/LoginPage";
+import SignUp from "./pages/SignUpPage";
+import Board from "./pages/BoardPage";
+import WriteArticle from "./pages/WriteArticlePage";
 import { Route, Routes } from "react-router-dom";
 
 export default function Router() {

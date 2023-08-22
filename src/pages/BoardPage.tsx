@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useGetAllArticle } from "../../request/boardRequest";
-import "../../styles/components/board/Board.css";
+import { useGetAllArticle } from "../request/boardRequest";
+import "../styles/pages/BoardPage.css";
 
 export default function Board() {
   const { data } = useGetAllArticle();
@@ -20,23 +20,11 @@ export default function Board() {
             data-testid="article"
           >
             {data.map((el, idx) => {
-              return (
-                <div key={idx}>
-                  <div>{el.title}</div>
-                  <div>{el.author}</div>
-                  <div>{el.content}</div>
-                </div>
-              );
+              return "게시글 컴포넌트";
             })}
           </div>
         )}
-        <button
-          onClick={() => {
-            navigate("/board/write");
-          }}
-        >
-          글 쓰기
-        </button>
+        <button onClick={() => navigate("/board/write")}>글 쓰기</button>
       </div>
     </div>
   );
