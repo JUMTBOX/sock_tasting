@@ -1,8 +1,8 @@
 import axios from "axios";
 import { FormEvent, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { domain } from "../../dotenv";
-import "../../styles/components/login/SignUp.css";
+import { domain } from "../dotenv";
+import "../styles/pages/SignUpPage.css";
 
 export default function SignUp() {
   const inputRef = useRef<any>([]);
