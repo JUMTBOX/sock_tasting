@@ -1,7 +1,7 @@
 import axios from "axios";
 import { FormEvent, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { domain } from "../dotenv";
+import { domain } from "../dotenv.js";
 import "../styles/pages/LoginPage.css";
 
 export default function Login() {
