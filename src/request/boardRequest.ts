@@ -25,10 +25,14 @@ const getOneArticle = async (): Promise<BoardData> => {
   return data;
 };
 
-const createArticle = async (): Promise<number> => {
-  const { status } = await axios.post("http://localhost:8080/board/write");
+const createArticle = async (args: BoardData): Promise<number> => {
+  const { status } = await axios.post("http://localhost:8080/board/write", {
+    title: args.title,
+    author: args.author,
+    content: args.content,
+  });
 
-  if (status === 200) window.alert("수정이 완료되었습니다.");
+  if (status === 200) window.alert("포스팅 성공!");
   return status;
 };
 
@@ -45,13 +49,14 @@ const useGetOneArticle = (): UseQueryResult<BoardData> => {
   });
 };
 //---------------------------------------------------------------------
-const useCreateArticle = (): UseMutationResult => {
+const useCreateArticle = (): UseMutationResult<any, any, BoardData> => {
   const queryClient = useQueryClient();
 
-  return useMutation(createArticle, {
+  return useMutation((args: BoardData) => createArticle(args), {
     onSuccess: () => {
       queryClient.invalidateQueries(["articles"]);
     },
   });
 };
+
 export { useGetAllArticle, useGetOneArticle, useCreateArticle };

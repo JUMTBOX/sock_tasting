@@ -1,12 +1,24 @@
 .board_container {
+  width: 100%;
+  height: 100%;
   align-items: center;
 }
 .board_container .board_box {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 1000px;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: end;
+  padding: 1em 2em;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   color: white;
 }
-.board_container .board_box .article {
-  height: 80%;
-}
-.board_container .board_box .article div {
-  border: 1px solid blueviolet;
+.board_container .board_box .to_writeBtn {
+  width: 5em;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 1px solid black;
 }/*# sourceMappingURL=BoardPage.css.map */

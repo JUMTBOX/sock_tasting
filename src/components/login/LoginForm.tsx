@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { domain } from "../../dotenv";
@@ -17,9 +17,8 @@ export default function LoginForm() {
       password: pw,
     });
 
-    console.log(data);
-
     if (data === "OK") {
+      sessionStorage.setItem("userId", `${id}`);
       navigate("/main");
     } else if (data === "wrongpw") {
       window.alert("비밀번호가 틀립니다");
