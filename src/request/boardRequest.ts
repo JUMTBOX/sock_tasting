@@ -8,7 +8,6 @@ import {
 } from "@tanstack/react-query";
 
 export interface BoardData {
-  article_id: string;
   title: string;
   author: string;
   content: string;
