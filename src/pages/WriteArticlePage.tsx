@@ -1,10 +1,35 @@
+import { useRef } from "react";
+import { useCreateArticle } from "../request/boardRequest";
+import "../styles/pages/WriteArticlePage.css";
+import { useNavigate } from "react-router-dom";
+
 export default function WriteArticle() {
+  const navigate = useNavigate();
+  const articleRef = useRef<any>([]);
+  const { mutateAsync } = useCreateArticle();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    let info = {
+      article_id: "",
+      title: articleRef.current[0].value,
+      author: JSON.stringify(sessionStorage.getItem("userId")),
+      content: articleRef.current[1].value,
+    };
+    await mutateAsync(info);
+    navigate("/board");
+  };
+
   return (
     <div className="form_container">
       <form action="/">
         <div className="form_title">
           <h3>제목</h3>
-          <input type="text" required />
+          <input
+            type="text"
+            required
+            ref={(el) => (articleRef.current[0] = el)}
+          />
         </div>
         <div className="form_content">
           <h3>내용</h3>
@@ -13,10 +38,11 @@ export default function WriteArticle() {
             id="content"
             cols={30}
             rows={10}
+            ref={(el) => (articleRef.current[1] = el)}
             required
           ></textarea>
         </div>
-        <button type="submit">작성하기</button>
+        <button onClick={handleSubmit}>작성하기</button>
       </form>
     </div>
   );

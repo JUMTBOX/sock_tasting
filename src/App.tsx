@@ -7,7 +7,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="App flex-col align-middle">
+    <div className="App">
       {location.pathname.includes("users") ? null : <NavBar />}
       <Router />
     </div>
