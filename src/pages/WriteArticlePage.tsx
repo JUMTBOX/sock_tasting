@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useCreateArticle } from "../request/boardRequest";
-import "../styles/pages/WriteArticlePage.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/pages/WriteArticlePage.css";
 
 export default function WriteArticle() {
   const navigate = useNavigate();
@@ -10,12 +10,13 @@ export default function WriteArticle() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     let info = {
-      article_id: "",
       title: articleRef.current[0].value,
-      author: JSON.stringify(sessionStorage.getItem("userId")),
+      author: String(sessionStorage.getItem("userId")).split("@")[0],
       content: articleRef.current[1].value,
     };
+
     await mutateAsync(info);
     navigate("/board");
   };

@@ -12,7 +12,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ArticleItemInfo> = (args) => <ArticleItem {...args} />;
+const Template: Story<ArticleItemInfo> = (args: ArticleItemInfo) => (
+  <ArticleItem {...args} />
+);
 
 export const Type1 = Template.bind({});
 
