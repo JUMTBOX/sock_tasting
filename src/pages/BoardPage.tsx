@@ -19,7 +19,12 @@ export default function Board() {
           <>
             {data.map((el, idx) => {
               return (
-                <ArticleItem title={el.title} author={el.author} key={idx} />
+                <ArticleItem
+                  title={el.title}
+                  author={el.author}
+                  id={el.article_id}
+                  key={idx}
+                />
               );
             })}
           </>

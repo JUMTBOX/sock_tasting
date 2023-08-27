@@ -6,25 +6,33 @@ import {
   UseMutationResult,
   useQueryClient,
 } from "@tanstack/react-query";
+import { Params } from "react-router-dom";
 
-export interface BoardData {
+export interface GetBoardData {
+  article_id: number;
+  title: string;
+  author: string;
+  content: string;
+  created_at: string;
+}
+
+export interface SendBoardData {
   title: string;
   author: string;
   content: string;
 }
-
-const getArticle = async (): Promise<[BoardData]> => {
-  const { data } = await axios.get("http://localhost:8080/board");
+const getArticle = async (): Promise<[GetBoardData]> => {
+  const { data } = await axios.get("http://localhost:8080/board/");
 
   return data;
 };
 
-const getOneArticle = async (): Promise<BoardData> => {
-  const { data } = await axios.get("http://localhost:8080/board/:id");
+const getOneArticle = async (params: Params<string>): Promise<GetBoardData> => {
+  const { data } = await axios.get(`http://localhost:8080/board/${params.id}`);
   return data;
 };
 
-const createArticle = async (args: BoardData): Promise<number> => {
+const createArticle = async (args: SendBoardData): Promise<number> => {
   const { status } = await axios.post("http://localhost:8080/board/write", {
     title: args.title,
     author: args.author,
@@ -36,22 +44,22 @@ const createArticle = async (args: BoardData): Promise<number> => {
 };
 
 //custom hook
-const useGetAllArticle = (): UseQueryResult<[BoardData]> => {
+const useGetAllArticle = (): UseQueryResult<[GetBoardData]> => {
   return useQuery(["articles"], getArticle, {
     staleTime: 2 * 60 * 1000,
   });
 };
 //---------------------------------------------------------------------
-const useGetOneArticle = (): UseQueryResult<BoardData> => {
-  return useQuery(["article"], getOneArticle, {
-    staleTime: 2 * 60 * 1000,
-  });
+const useGetOneArticle = (
+  params: Params<string>
+): UseQueryResult<GetBoardData> => {
+  return useQuery(["article"], () => getOneArticle(params), {});
 };
 //---------------------------------------------------------------------
-const useCreateArticle = (): UseMutationResult<any, any, BoardData> => {
+const useCreateArticle = (): UseMutationResult<any, any, SendBoardData> => {
   const queryClient = useQueryClient();
 
-  return useMutation((args: BoardData) => createArticle(args), {
+  return useMutation((args: SendBoardData) => createArticle(args), {
     onSuccess: () => {
       queryClient.invalidateQueries(["articles"]);
     },
