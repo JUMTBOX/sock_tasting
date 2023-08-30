@@ -7,10 +7,13 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="App">
+    <>
       {location.pathname.includes("users") ? null : <NavBar />}
-      <Router />
-    </div>
+      <div className="App">
+        <div className="empty_space"></div>
+        <Router />
+      </div>
+    </>
   );
 }
 

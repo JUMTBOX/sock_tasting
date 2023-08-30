@@ -2,7 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: inherit;
+  height: inherit;
 }
 .main_container .main_box {
-  height: 120vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=MainPage.css.map */

@@ -3,6 +3,7 @@ import Login from "./pages/LoginPage";
 import SignUp from "./pages/SignUpPage";
 import Board from "./pages/BoardPage";
 import WriteArticle from "./pages/WriteArticlePage";
+import ModifyPage from "./pages/ModifyPage";
 import ArticlePage from "./pages/ArticlePage";
 import { Route, Routes } from "react-router-dom";
 
@@ -14,6 +15,7 @@ export default function Router() {
       <Route path="/users/signup" Component={SignUp} />
       <Route path="/board" Component={Board} />
       <Route path="/board/:id" Component={ArticlePage} />
+      <Route path="/board/:id/modify" Component={ModifyPage} />
       <Route path="/board/write" Component={WriteArticle} />
     </Routes>
   );
