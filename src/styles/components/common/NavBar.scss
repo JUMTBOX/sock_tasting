@@ -1,11 +1,12 @@
 .navBar_container {
-  position: fixed;
+  position: absolute;
+  top: 0;
   width: 100%;
   height: 4em;
   .navBar_box {
     width: 100%;
     height: inherit;
-    background-color: #f8f8f8;
+    background-color: #c5c5fa;
     align-items: center;
     justify-content: space-between;
     a {

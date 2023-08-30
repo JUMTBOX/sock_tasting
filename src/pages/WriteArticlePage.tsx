@@ -22,9 +22,9 @@ export default function WriteArticle() {
   };
 
   return (
-    <div className="form_container">
-      <form action="/">
-        <div className="form_title">
+    <div className="form_container shadow-lg">
+      <form action="/" className="shadow-lg space-y-10">
+        <div className="form_title space-x-3">
           <h3>제목</h3>
           <input
             type="text"
@@ -33,7 +33,6 @@ export default function WriteArticle() {
           />
         </div>
         <div className="form_content">
-          <h3>내용</h3>
           <textarea
             name="content"
             id="content"
